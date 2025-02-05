@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta de San Valentín Interactiva</title>
+  <style>
+    /* Estilos generales */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #af2f2f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      perspective: 1000px; /* Mejora el efecto 3D */
+    }
+
+    .card {
+      position: relative;
+      width: 550px;
+      height: 370px;
+      border-radius: 15px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.8s;
+      transform-style: preserve-3d; /* Permite que ambas caras giren */
+    }
+
+    .card.open {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 15px;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .front {
+      background-color: #ff4d4d;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      padding: 20px;
+    }
+
+    .front img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .back {
+      background-color: white;
+      color: #333;
+      transform: rotateY(180deg);
+      padding: 20px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .back h1 {
+      color: #ff4d4d;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .back p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .back img {
+      width: 120px;
+      height: 120px;
+      margin-top: 10px;
+    }
+
+    .heart {
+      font-size: 2rem;
+      color: #ff4d4d;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    .signature {
+      margin-top: 15px;
+      font-style: italic;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="valentineCard">
+    <!-- Frente de la carta -->
+    <div class="front">
+      <img src="img/descarga.jpg" alt="Corazón">
+      ¡Haz clic para abrir! ❤️
+    </div>
+    <!-- Parte trasera (mensaje) -->
+    <div class="back">
+      <h1>Feliz San Valentín ❤️</h1>
+      <p>
+        Mi bubusita de patitas cortas,<br>
+        En este día especial, quiero recordarte lo mucho que significas para mí. 
+        Tu amor llena mi vida de alegría y felicidad. ¡Eres simplemente increíble!
+      </p>
+      <img src="img/Tkthao219 Bubududu Sticker - Tkthao219 Bubududu Panda - Descubre y comparte GIF.gif" alt="Pareja enamorada">
+      <div class="signature">
+        Con todo mi amor,<br>
+        Tu Dudu
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript para manejar la interacción
+    const card = document.getElementById('valentineCard');
+
+    card.addEventListener('click', () => {
+      card.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
